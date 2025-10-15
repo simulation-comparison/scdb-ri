@@ -1,0 +1,123 @@
+#===============================================================================
+#
+# Isotropic source in unbounded space
+# scdb-ri/2025-10-15-energy-conservation comparison
+#
+#===============================================================================
+
+#===============================================================================
+# Run control
+#===============================================================================
+:start run control:
+    ncase = %(ncase)s
+:stop run control:
+
+#===============================================================================
+# Random seeds
+#===============================================================================
+:start rng definition:
+    initial seeds   = %(seedi)d %(seedj)d    # initial seeds < 32000
+:stop rng definition:
+
+#===============================================================================
+# Geometry
+#===============================================================================
+:start geometry definition:
+
+    ### an unbounded space
+    :start geometry:
+        name = space
+        library = egs_space
+        :start media input:
+            media = %(medium)s
+        :stop media input:
+    :stop geometry:
+
+    simulation geometry = space
+
+:stop geometry definition:
+
+#===============================================================================
+# Media
+#===============================================================================
+:start media definition:
+
+    ### threshold energies
+    ae  = %(ae).3f
+    ap  = %(ap).3f
+    ue  = %(ue).3f
+    up  = %(up).3f
+
+    :start air:
+        density correction file = air_dry_nearsealevel
+    :stop air
+
+    :start water:
+        density correction file = water_icru90
+    :stop water:
+
+    :start hydrogen:
+        density correction file = carbon_graphite_1.700g_cm3
+    :stop hydrogen:
+
+    :start aluminum:
+        density correction file = aluminum
+    :stop aluminum:
+
+    :start cobalt:
+        density correction file = cobalt
+    :stop cobalt:
+
+    :start silver:
+        density correction file = silver
+    :stop silver:
+
+    :start tungsten:
+        density correction file = tungsten
+    :stop tungsten:
+
+    :start lead:
+        density correction file = lead
+    :stop lead:
+
+:stop media definition:
+
+#===============================================================================
+# Source
+#===============================================================================
+:start source definition:
+
+    ### pencil beam
+    :start source:
+        name      = point_source
+        library   = egs_isotropic_source
+        charge    = %(charge)d
+        :start spectrum:
+            type = monoenergetic
+            energy = %(energy)s                 # MeV
+        :stop spectrum:
+        :start shape:
+            type     = point
+            position = 0 0 0                    # cm
+        :stop shape:
+    :stop source:
+
+    ### use this source for the simulation
+    simulation source = point_source
+
+:stop source definition:
+
+#===============================================================================
+# Ausgab objects
+#===============================================================================
+:start ausgab object definition:
+
+    ### report energy and dose in region 0
+    :start ausgab object:
+        name    = dose
+        library = egs_dose_scoring
+        dose regions = 0
+        volume  = 1
+    :stop ausgab object:
+
+:stop ausgab object definition:
