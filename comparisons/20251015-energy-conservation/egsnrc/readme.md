@@ -56,6 +56,8 @@ Here is the geometry input block template used for all simulations in this compa
         :stop media input:
     :stop geometry:
 
+    simulation geometry = space
+
 :stop geometry definition:
 ```
 
@@ -128,7 +130,7 @@ The source of particles is located at the origin, and isotropic on the unit sphe
 
 ## 6. Scoring
 
-Scoring is carried out using the EGSnrc ausgab object `dose_scoring_object`. While the volume of the egs_space scoring region is unbounded, its mass is arbitrarily set to unity to allow the dose scoring object to work as expected, computing a (fictitious) dose. This comparison tracks the total energy deposited, which is output by the `dose_scoring_object`. Here is a sample output showing the relevant energy deposited by incident particle.
+Scoring is carried out using the EGSnrc `egs_dose_scoring` ausgab object. While the volume of the egs_space scoring region is unbounded, its mass is arbitrarily set to unity to allow the dose scoring object to work as expected, computing a (fictitious) dose. This comparison tracks the total energy deposited, which is output by the `egs_dose_scoring`. Here is a sample output showing the relevant energy deposited by incident particle.
 
 ```text
 
