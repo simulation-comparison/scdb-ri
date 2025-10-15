@@ -24,7 +24,7 @@
 
 ### 1.1. Purpose
 
-Verify that Monte Carlo simulation correctly conserve energy during particle transport.
+Verify that Monte Carlo simulations correctly conserve energy during particle transport.
 
 ### 1.2. Scope
 
