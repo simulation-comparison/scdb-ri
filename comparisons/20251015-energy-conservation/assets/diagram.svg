@@ -1,0 +1,34 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Define arrow marker -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+        <polygon points="0 0, 10 3, 0 6"/>
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect width="800" height="400" fill="#aaccff"/>
+
+    <g transform="translate(400, 200)">
+
+        <!-- Dashed circle (radius r centered at origin) -->
+        <circle cx="0" cy="0" r="120" fill="none" stroke="rgba(0, 0, 0, 0.5)" stroke-width="2" stroke-dasharray="8,5"/>
+
+        <!-- Origin marker -->
+        <circle cx="0" cy="0" r="2.5"/>
+
+        <!-- Incident particle (starting at origin) -->
+        <circle cx="0" cy="0" r="8"/>
+
+        <!-- Direction vector u (from origin to circle boundary, at 45° angle) -->
+        <line x1="0" y1="0" x2="81" y2="-80" stroke="black" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+
+        <!-- Labels -->
+        <text x="0" y="38" font-size="18" font-family="serif" fill="black" text-anchor="middle">(0,0,0)</text>
+        <text x="-25" y="-18" font-size="18" font-family="serif" font-weight="bold">E₀</text>
+        <text x="40" y="-70" font-size="18" font-family="serif" font-weight="bold">u</text>
+        <text x="90" y="120" font-size="18" font-family="sans" fill="rgba(0, 0, 0, 0.5)" >isotropic</text>
+
+    </g>
+</svg>

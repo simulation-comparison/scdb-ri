@@ -59,7 +59,11 @@ The total energy deposited per incident particle is equal to the initial particl
 
 - Infinite homogeneous medium (no boundaries).
 
-- Particle starts at origin.
+- Particle starts at origin with kinetic energy $E_0$.
+
+- Diagram:
+
+  ![](assets/diagram.png)
 
 - If the software cannot model an infinite medium space, the implementation should:
 
@@ -67,6 +71,7 @@ The total energy deposited per incident particle is equal to the initial particl
   - Center the sphere at the origin.
   - Document the actual sphere radius used for each case.
   - Verify that the fraction of particles reaching the sphere radius is less than $10^{-16}$.
+
 
 ### 2.5. Source
 
