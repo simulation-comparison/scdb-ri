@@ -41,7 +41,7 @@ To reproduce the simulations presented here:
 
 ## 3. Geometry
 
-The unbounded simulation space is modelled using the [`egs_space`](https://github.com/nrc-cnrc/EGSnrc/blob/master/HEN_HOUSE/egs%2B%2B/geometry/egs_space/egs_space.h) geometry. Technically, this geometry always returns a very large distance ($10^30$ cm) when its `howfar()` and `hownear()` methods are invoked, effectively modelling an unbounded region of space.
+The unbounded simulation space is modelled using the [`egs_space`](https://github.com/nrc-cnrc/EGSnrc/blob/master/HEN_HOUSE/egs%2B%2B/geometry/egs_space/egs_space.h) geometry. Technically, this geometry always returns a [very large distance](https://github.com/nrc-cnrc/EGSnrc/blob/79890aaaeebced4bc136820028d83a448b1b4a3f/HEN_HOUSE/egs%2B%2B/egs_functions.h#L105) ($10^{30}$ cm) when its `howfar()` and `hownear()` methods are invoked, effectively modelling an unbounded space.
 
 Here is the geometry input block template used for all simulations in this comparison:
 
@@ -77,7 +77,7 @@ Materials are defined via [density effect correction files](https://github.com/n
 | Air      | C (0.0124%), N (75.5267%), O (23.1781%), Ar (1.2827%) | 85.666000    | 1.20478997E-03 |
 | Water    | H (11.1894%), O (88.8106%)                            | 78.00000     | 0.998000       |
 
-Below is the material definition block, identical in all EGSnrc input files in this comparison
+Below is the material definition block, identical in all EGSnrc input files in this comparison.
 
 ```ruby
 :start media definition:
