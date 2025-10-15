@@ -1,4 +1,4 @@
-# Ionizing radiation simulation comparison database (scdb-ri)
+# Ionizing radiation simulation comparison database
 
 **Metrological traceability for simulations of ionizing radiation transport**
 
