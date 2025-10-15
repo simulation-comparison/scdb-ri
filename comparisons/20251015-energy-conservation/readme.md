@@ -68,7 +68,7 @@ The total energy deposited per incident particle is equal to the initial particl
 - Position: (0, 0, 0).
 - Direction: Isotropic (random in 4π).
 - Spectrum: Monoenergetic
-- Kinetic energies: 1.234567890123456e-2, 1.234567890123456e-1, 1.234567890123456e0, 1.234567890123456e1 MeV
+- Kinetic energy (MeV): 1.234567890123456e-2, 1.234567890123456e-1, 1.234567890123456e0, 1.234567890123456e1
 
 ### 2.6. Physics
 
