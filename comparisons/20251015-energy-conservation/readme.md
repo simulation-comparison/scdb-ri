@@ -59,7 +59,7 @@ The total energy deposited per incident particle is equal to the initial particl
 
 - Infinite homogeneous medium (no boundaries).
 
-- Particle starts at origin with kinetic energy $E_0$.
+- Each particle starts at origin with kinetic energy $E_0$, in a random direction.
 
 - Diagram:
 
@@ -76,8 +76,8 @@ The total energy deposited per incident particle is equal to the initial particl
 ### 2.5. Source
 
 - Position: (0, 0, 0)
-- Direction: Isotropic (4π)
-- Energy: Monoenergetic
+- Direction: Isotropic (random direction in 4π)
+- Energy: Monoenergetic, kinetic energy $E_0$.
 - Particle type: Electron or Photon
 
 ### 2.6. Physics
