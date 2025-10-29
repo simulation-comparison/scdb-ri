@@ -24,7 +24,7 @@
 
 ### 1.1. Purpose
 
-Verify that Monte Carlo simulations correctly conserve energy during particle transport.
+Verify that Monte Carlo simulations correctly conserve energy during particle transport, up to floating-point precision.
 
 ### 1.2. Scope
 
@@ -32,11 +32,17 @@ Verify energy conservation for monoenergetic electrons and photons (1 keV to 20 
 
 ### 1.3. Rationale
 
-Energy conservation is a fundamental principle and requirement for a software modelling the transport of ionizing radiation. In numerical simulation on a finite-precision computer, however, floating-point arithmetic error ($2^{-52}$ in 64-bit IEEE 754 representation) may accumulate during calculation. This scenario seeks to verify that floating point errors are under control in the simulation software, for a set of representative energies and materials.
+- Energy conservation is a fundamental principle and requirement for a software modelling the transport of ionizing radiation.
+
+- In numerical work on a finite-precision computer, floating-point arithmetic errors ($2^{-52}$ in 64-bit IEEE 754 representation) accumulate during calculation.
+
+- This scenario seeks to verify that floating-point errors are under control in the software.
+
+- A set of representative energies and materials is considered, because the accumulated floating-point error in this scenario is expected to grow like the number of energy deposition events during the simulation, which is proportional to $N$, with a constant that depends on the incident energy and the atomic number.
 
 ### 1.4. Expectation
 
-The total energy deposited per incident particle is equal to the initial particle energy, within a range that can be explained by floating-point arithmetic error propagation.
+The total energy deposited per incident particle is equal to the initial particle energy, up to a precision that can be understood in terms of floating-point errors.
 
 ## 2. Specification
 
@@ -66,15 +72,16 @@ The total energy deposited per incident particle is equal to the initial particl
 - Particle: Electron or Photon.
 - Shape: Point source.
 - Position: (0, 0, 0).
-- Direction: Isotropic (random in 4π).
+- Direction: Isotropic (uniformly random in 4π).
 - Spectrum: Monoenergetic
 - Kinetic energy (MeV): 1.234567890123456e-2, 1.234567890123456e-1, 1.234567890123456e0, 1.234567890123456e1
 
 ### 2.6. Physics
 
-- Default or documented options, physical data and cross sections.
-- Default production thresholds and transport cutoffs.
+- Default physical data, options and cross sections.
+- Default particle production thresholds and transport cutoffs.
 - No variance reduction techniques.
+- For parameters without a default value, use the value or option that is typically recommended.
 
 ## 3. Measurand
 
@@ -112,8 +119,8 @@ The total energy deposited per incident particle is equal to the initial particl
 - Provide the result dataset as a .csv file according to the following template:
 
   ```csv
-  software,version,particle,material,keV,R
-  EGSnrc,2025,electron,H2O,10,1.34e-15
+  software,version,particle,material,MeV,R
+  EGSnrc,2025,electron,H2O,0.01,1.34e-15
   ```
 
 ## 7. Results
